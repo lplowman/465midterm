@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello...</title>
+<style type="text/css">
+#header{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: xx-large;
+	font-weight: bold;
+	background-color: grey;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+#pEx{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bold;
+	background-color: white;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+#mainContent {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	font-weight: bold;
+	background-color: grey;
+	border-radius: 4px;
+	padding: 10px;
+	text-align: center;
+}
+
+</style>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["lAmount"].value;
+    if (x == null || x == "") {
+        alert("Loan amount must be filled out");
+        return false;
+    }
+    var y = document.forms["myForm"]["iRate"].value;
+    if(y == null || y == ""){
+    	alert("Interest Rate must be filled out");
+    	return false;
+    }
+    var z = document.forms["myForm"]["lTerm"].value;
+    if(z == null || z == ""){
+    	alert("Loan term must be filled out");
+    	return false;
+    }
+}
+</script>
+</head>
+<body>
+	<div id="header">Welcome to Mortgage Amortization Calculator</div>
+	<div id="pEx">Enter your loan amount, interest rate, and loan term (in months) to get your calculation</div>
+
+<form id="mainContent" name="myForm" action="calculation.php"
+onsubmit="return validateForm()" method="post">
+Loan Amount: <input type="text" name="lAmount">
+Interest Rate: <input type="text" name="iRate">
+Loan Term: <input type="text" name ="lTerm">
+<input type="submit" value="Submit">
+</form>
+
+
+
+</body>
+</html>
